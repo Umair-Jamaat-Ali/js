@@ -265,3 +265,90 @@ const output = inputs.map((item) => {
 })
 console.log("square of array",output);
 
+const promiseOne = new Promise((resolve,reject)=>{
+   setTimeout((function () {
+      resolve()
+      console.log("Promise one is called");
+   }),2000)
+})
+
+const result2 = promiseOne.then((user)=>{
+   console.log("then function called");
+}).catch((error)=> {
+   console.log(error)
+})
+
+console.log(result2);
+
+const promiseTwo = new Promise((resolve,reject)=> {
+   setTimeout(function () {
+      resolve({
+         name:"Umair Jamaat ali",
+         email:"umairjamaat@google.com"
+      })
+   },2000)
+})
+
+const res = promiseTwo.then((user)=>{
+ console.log(user.name);
+}).then((name)=>{
+   console.log(name);
+}).catch((error)=>{
+console.log("Error :", error);
+})
+
+console.log(res);
+
+const promiseThree = new Promise((resolve,reject)=>{
+   setTimeout(()=>{
+      let error = true
+     if (!error) {
+      resolve({
+         course : "js course",
+         price : 2999
+      })
+     } else {
+      reject('Error : Something went wrong')
+     }
+   },5000)
+})
+
+const rest = promiseThree.then((user)=> {
+   console.log(user.course);
+}).then((course)=> {
+   console.log(course);
+}).catch((error)=>{
+   console.log(error);
+});
+
+
+const promiseFour = new Promise((resolve,reject)=>{
+   setTimeout(()=>{
+      let error = false
+     if (!error) {
+      resolve({
+         course : "js course",
+         price : 2999
+      })
+     } else {
+      reject('Error : Something went wrong')
+     }
+   },5000)
+})
+
+const rest1 = promiseThree.then((user)=> {
+   console.log(user.course);
+}).then((course)=> {
+   console.log(course);
+}).catch((error)=>{
+   console.log(error);
+})
+
+
+fetch('https://jsonplaceholder.typicode.com/posts').then((response)=> {
+   return response.json()
+}).then((result)=> {
+   console.log(result);
+}).catch((error)=> {
+   console.log(error);
+})
