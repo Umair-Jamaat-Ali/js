@@ -217,3 +217,51 @@ const input = [1, -4, 12, 0, -3, 29, -150];
 
 let result = input.filter((item) => item >= 0)
 console.log(result);
+
+const result1 = result.reduce((accumulative, currentValue) => {
+   console.log(`value of accumulative: ${accumulative}, value of currentValue: ${currentValue}`);
+   return accumulative + currentValue
+}, 0)
+
+console.log(result1);
+
+
+const shopingCard = [
+   {
+      course : "js course",
+      price: 2999
+   },
+   {
+      course : "phython course",
+      price: 1999
+   },
+   {
+      course : "mobile dev course",
+      price: 12999
+   },
+   {
+      course : "c++ course",
+      price: 2999
+   },
+]
+
+const prices = shopingCard.map((item) => {
+   return item.price
+})
+
+console.log(prices);
+
+const totalSum = prices.reduce((accumulative, currentValue) => {
+   return accumulative + currentValue
+}, 0);
+
+console.log( totalSum);
+console.log(typeof totalSum);
+
+const inputs = [1,2,3,4,5,6,7,8]
+ 
+const output = inputs.map((item) => {
+   return Math.pow(item, 5)
+})
+console.log("square of array",output);
+
